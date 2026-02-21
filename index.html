@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>BLAD AI · 2026 · intelligent twin</title>
-  <!-- Primary Meta -->
-  <meta name="description" content="BLAD AI — the digital twin of TUYISENGE Jean Chrisostome. Student teacher, web developer, and education technologist from Rwanda. Chat with my AI.">
+  <title>BLAD AI · world-class assistant 2026</title>
+  <meta name="description" content="BLAD AI — the intelligent twin of TUYISENGE Jean Chrisostome. Student teacher, web developer, and edtech creator from Rwanda. Chat naturally.">
   <meta name="author" content="BLAD (Black Legacy Destroyer)">
-  <!-- Open Graph / social -->
-  <meta property="og:title" content="BLAD AI · 2026 digital twin">
-  <meta property="og:description" content="Chat with the AI that thinks and talks like TUYISENGE Jean Chrisostome. Student teacher & web dev from Rwanda.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="BLAD AI · 2026 intelligent twin">
+  <meta property="og:description" content="Chat with the most human-like AI portfolio assistant. Built by TUYISENGE Jean Chrisostome.">
   <meta property="og:image" content="https://i.postimg.cc/tZ0wrGqj/BLAD.webp">
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,23 +16,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <style>
-    /*! BLAD AI 2026 — ultra personal, intelligent, fluid background (tech waves, no gifs) */
+    /* ---------- GLOBAL RESET & DESIGN SYSTEM 2026 ---------- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg-dark: #030a14;
-      --glass-edge: rgba(10, 50, 90, 0.25);
-      --primary-glow: #1e90ff;
-      --accent-gold: #ffb347;
-      --text-light: #f0f6ff;
-      --text-dim: #b0d0f0;
-      --card-bg: rgba(8, 25, 45, 0.4);
-      --border-glow: rgba(30, 144, 255, 0.4);
-      --font-main: 'Outfit', sans-serif;
+      --bg-deep: #030c15;
+      --glass-bg: rgba(8, 28, 48, 0.45);
+      --glass-edge: rgba(20, 100, 180, 0.3);
+      --primary-neon: #1e90ff;
+      --accent-amber: #ffb347;
+      --text-bright: #f0f9ff;
+      --text-soft: #bfd9f5;
+      --glow-color: rgba(30, 144, 255, 0.5);
+      --font-display: 'Outfit', sans-serif;
+      --border-shine: 1px solid rgba(100, 180, 250, 0.4);
     }
     body {
-      font-family: var(--font-main);
-      background: var(--bg-dark);
-      color: var(--text-light);
+      font-family: var(--font-display);
+      background: var(--bg-deep);
+      color: var(--text-bright);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -44,147 +44,151 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    /* ===== MOVING TECH BACKGROUND (advanced particles + data waves, no gifs) ===== */
+    /* ----- MOVING TECH WAVES & PARTICLES (no gifs) ----- */
     #bg-canvas {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 40% 50%, #0c2640 0%, #020812 100%);
+      background: radial-gradient(circle at 30% 40%, #0a233a 0%, #020b14 100%);
     }
-    /* glassmorphism overlay */
     .global-glass {
       position: fixed;
       inset: 0;
-      backdrop-filter: blur(2px) saturate(180%);
-      -webkit-backdrop-filter: blur(2px) saturate(180%);
-      background: radial-gradient(circle at 80% 20%, rgba(60, 160, 255, 0.08) 0%, transparent 50%);
+      backdrop-filter: blur(2px) saturate(200%);
+      -webkit-backdrop-filter: blur(2px) saturate(200%);
+      background: radial-gradient(circle at 80% 10%, rgba(0, 180, 255, 0.1) 0%, transparent 50%);
       z-index: 1;
       pointer-events: none;
     }
-    /* main container */
+    /* ----- MAIN CARD (glass premium) ----- */
     .app-container {
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 1440px;
+      max-width: 1500px;
       height: 95vh;
-      max-height: 950px;
-      background: rgba(3, 15, 28, 0.35);
-      backdrop-filter: blur(20px) saturate(200%);
-      -webkit-backdrop-filter: blur(20px) saturate(200%);
+      max-height: 1000px;
+      background: rgba(0, 18, 32, 0.4);
+      backdrop-filter: blur(24px) saturate(250%);
+      -webkit-backdrop-filter: blur(24px) saturate(250%);
       border-radius: 3rem;
-      border: 1px solid var(--border-glow);
-      box-shadow: 0 30px 70px -20px #000, 0 0 0 1px rgba(0, 180, 255, 0.2) inset, 0 0 60px rgba(0, 120, 255, 0.3);
+      border: 1px solid var(--glass-edge);
+      box-shadow: 0 30px 70px -20px #000, 0 0 0 1px rgba(0, 180, 255, 0.2) inset, 0 0 70px rgba(0, 120, 210, 0.4);
       display: flex;
       overflow: hidden;
-      transition: all 0.3s;
     }
-    /* ===== SIDEBAR ===== */
+    /* ----- SIDEBAR (profile, ultra personal) ----- */
     .sidebar {
-      width: 320px;
-      background: rgba(0, 12, 24, 0.5);
-      backdrop-filter: blur(18px);
-      border-right: 1px solid #2c577b;
+      width: 340px;
+      background: rgba(0, 10, 20, 0.5);
+      backdrop-filter: blur(20px);
+      border-right: 1px solid #2c5f8a;
       padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
+      gap: 2rem;
       overflow-y: auto;
       scrollbar-width: thin;
-      scrollbar-color: #3f7fb0 #0a2538;
+      scrollbar-color: #3f8fd0 #0a2638;
     }
-    .sidebar::-webkit-scrollbar { width: 5px; }
-    .sidebar::-webkit-scrollbar-track { background: #0a2538; border-radius: 20px; }
-    .sidebar::-webkit-scrollbar-thumb { background: #3f7fb0; border-radius: 20px; }
+    .sidebar::-webkit-scrollbar { width: 6px; }
+    .sidebar::-webkit-scrollbar-track { background: #0a2638; border-radius: 20px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #3f8fd0; border-radius: 20px; }
 
-    .avatar-lux {
+    .avatar-frame {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-    .avatar-lux img {
-      width: 120px;
-      height: 120px;
+    .avatar-frame img {
+      width: 130px; height: 130px;
       border-radius: 50%;
-      border: 4px solid var(--accent-gold);
-      box-shadow: 0 0 40px #1e90ff80;
+      border: 4px solid var(--accent-amber);
+      box-shadow: 0 0 50px #1e90ff, 0 0 20px gold;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.3s;
     }
-    .avatar-lux img:hover { transform: scale(1.02) rotate(1deg); }
-    .badge-ai {
-      background: #0b2a44;
+    .avatar-frame img:hover { transform: scale(1.02) rotate(0.5deg); }
+    .ai-badge {
+      background: #103a5a;
       border-radius: 60px;
-      padding: 0.4rem 1.4rem;
+      padding: 0.4rem 1.5rem;
       font-size: 0.9rem;
-      font-weight: 500;
       border: 1px solid gold;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
-    .badge-ai i { color: #2ecc71; font-size: 0.7rem; }
+    .ai-badge i { color: #2ecc71; font-size: 0.7rem; }
 
-    .info-module {
-      background: rgba(0, 35, 60, 0.4);
+    .info-panel {
+      background: rgba(0, 40, 70, 0.3);
       border-radius: 2rem;
-      padding: 1.4rem;
-      border: 1px solid #3478a5;
+      padding: 1.5rem;
+      border: 1px solid #3a7ca5;
       backdrop-filter: blur(8px);
     }
-    .info-module h4 {
+    .info-panel h4 {
       font-weight: 600;
       font-size: 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #cde2ff;
+      color: #d4ecff;
+    }
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
     }
     .chip {
-      display: inline-block;
-      background: #14466b;
+      background: #144b74;
       border-radius: 40px;
-      padding: 0.2rem 1rem;
+      padding: 0.2rem 1.1rem;
       font-size: 0.8rem;
-      font-weight: 400;
-      margin: 0.2rem 0.1rem;
-      border: 1px solid #4a9fd0;
+      border: 1px solid #5aafe0;
     }
-    .contact-row { font-size: 0.9rem; margin: 0.5rem 0; display: flex; gap: 0.8rem; align-items: center; }
-    .contact-row i { width: 1.5rem; color: #ffb854; }
+    .contact-item {
+      font-size: 0.9rem;
+      margin: 0.7rem 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .contact-item i { width: 1.5rem; color: #fdb45e; }
 
-    /* ===== MAIN CHAT AREA ===== */
+    /* ----- MAIN CHAT AREA (ChatGPT level) ----- */
     .main-panel {
       flex: 1;
       display: flex;
       flex-direction: column;
       background: transparent;
-      position: relative;
     }
     .chat-header {
       padding: 1.2rem 2rem;
-      background: rgba(0, 15, 30, 0.3);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #28638b;
+      background: rgba(0, 20, 35, 0.4);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #2e6f9f;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-    .ai-status {
+    .status-pill {
       display: flex;
       align-items: center;
       gap: 6px;
-      background: #103a52;
-      padding: 0.3rem 1rem;
+      background: #113e5a;
+      padding: 0.3rem 1.2rem;
       border-radius: 60px;
       font-size: 0.8rem;
-      border: 1px solid #5aa5d8;
+      border: 1px solid #5da5d8;
     }
-    .ai-status i { color: #2ecc71; font-size: 0.6rem; }
+    .status-pill i { color: #2ecc71; font-size: 0.6rem; }
+
     .chat-window {
       flex: 1;
       padding: 1.8rem 2rem;
@@ -199,61 +203,62 @@
       align-items: flex-end;
       gap: 12px;
       max-width: 80%;
-      animation: msgPop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      animation: msgFloat 0.3s cubic-bezier(0.2,0.9,0.3,1);
     }
-    @keyframes msgPop { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes msgFloat { 0% { opacity: 0; transform: translateY(18px); } 100% { opacity: 1; transform: translateY(0); } }
     .message.user { align-self: flex-end; flex-direction: row-reverse; }
     .msg-avatar {
       width: 44px; height: 44px;
-      border-radius: 50%;
-      background: #0e3250;
+      border-radius: 44px;
+      background: #10486b;
       display: flex; align-items: center; justify-content: center;
-      border: 2px solid #3d9de0;
+      border: 2px solid #3d9ef0;
       flex-shrink: 0;
       overflow: hidden;
     }
     .msg-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .bubble {
-      background: rgba(15, 45, 75, 0.7);
-      backdrop-filter: blur(15px);
-      padding: 0.9rem 1.5rem;
+      background: rgba(10, 40, 70, 0.7);
+      backdrop-filter: blur(16px);
+      padding: 0.9rem 1.6rem;
       border-radius: 28px 28px 28px 8px;
-      border: 1px solid #3f8dc0;
-      color: #e9f3ff;
+      border: 1px solid #4390c7;
+      color: #ecf5ff;
       font-size: 1rem;
       line-height: 1.5;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
       white-space: pre-wrap;
+      word-break: break-word;
     }
     .user .bubble {
-      background: rgba(0, 70, 120, 0.7);
+      background: rgba(0, 80, 130, 0.7);
       border-radius: 28px 28px 8px 28px;
-      border-color: #f3b33d;
+      border-color: #fabb50;
     }
-    .typing {
+    .typing-indicator {
       display: flex;
       gap: 6px;
       padding: 0.8rem 1.8rem;
-      background: rgba(15, 45, 75, 0.5);
-      border-radius: 50px;
+      background: rgba(10, 45, 70, 0.6);
+      border-radius: 60px;
       width: fit-content;
       border: 1px solid #4080b0;
     }
-    .typing span {
+    .typing-indicator span {
       width: 10px; height: 10px;
-      background: #aad0ff;
+      background: #bbdefa;
       border-radius: 50%;
-      animation: wave 1.4s infinite;
+      animation: blinkTyping 1.4s infinite;
     }
-    .typing span:nth-child(2) { animation-delay: 0.2s; }
-    .typing span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes wave { 0%,60%,100%{ transform: translateY(0); } 30%{ transform: translateY(-10px); } }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blinkTyping { 0%,60%,100%{ opacity: 0.3; transform: scale(1); } 30%{ opacity: 1; transform: scale(1.2); } }
 
     .input-area {
-      padding: 1.4rem 2rem;
+      padding: 1.5rem 2rem;
       background: rgba(0, 20, 35, 0.5);
-      backdrop-filter: blur(16px);
-      border-top: 1px solid #2e6b99;
+      backdrop-filter: blur(20px);
+      border-top: 1px solid #2e6f9f;
       display: flex;
       gap: 12px;
     }
@@ -266,11 +271,10 @@
       font-size: 1rem;
       color: white;
       outline: none;
-      backdrop-filter: blur(8px);
     }
-    .input-area input::placeholder { color: #b0cef0; font-weight: 300; }
-    .send-btn {
-      background: #1e6cb0;
+    .input-area input::placeholder { color: #b0d0f0; }
+    .send-action {
+      background: #1f7ab5;
       border: none;
       border-radius: 60px;
       width: 58px; height: 58px;
@@ -281,242 +285,211 @@
       border: 1px solid #ffdb8b;
       box-shadow: 0 0 20px #0077ff;
     }
-    .send-btn:hover { background: #3288d0; transform: scale(1.05); }
+    .send-action:hover { background: #3892d4; transform: scale(1.05); }
 
-    .portfolio-tease {
+    .suggestion-chips {
+      padding: 0.5rem 2rem 0.2rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin: 0.5rem 0;
+      gap: 0.5rem;
     }
-    .project-badge {
-      background: #133f5c;
+    .chip-suggest {
+      background: #124566;
       border-radius: 30px;
-      padding: 0.4rem 1.2rem;
+      padding: 0.4rem 1.3rem;
       font-size: 0.85rem;
       border: 1px solid #4797cf;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.15s;
     }
-    .project-badge:hover { background: #1d5c88; border-color: gold; }
+    .chip-suggest:hover { background: #1d6190; border-color: gold; }
 
-    .footer-credit {
+    .footer-note {
       font-size: 0.7rem;
-      color: #7ca5c9;
+      color: #8db0d0;
       text-align: center;
       padding: 0.3rem;
-      background: rgba(0,10,20,0.4);
     }
-    @media (max-width: 800px) {
-      .app-container { flex-direction: column; height: 98vh; border-radius: 2rem; }
-      .sidebar { width: 100%; max-height: 40vh; border-right: none; border-bottom: 1px solid #2c577b; padding: 1rem; }
-      .message { max-width: 95%; }
-    }
+
+    /* ----- LOADER (5 sec) ----- */
     #loader-wrapper {
-      position: fixed; inset: 0; background: #030a14; z-index: 9999;
+      position: fixed; inset: 0; background: #030c15; z-index: 9999;
       display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.8s, visibility 0.8s;
+      transition: opacity 0.6s, visibility 0.6s;
     }
     .loader-hidden { opacity: 0; visibility: hidden; }
-    .blad-spinner {
-      width: 80px; height: 80px; border: 5px solid #1e4e7a; border-top-color: #ffb347; border-radius: 50%;
-      animation: spin 1s infinite ease; box-shadow: 0 0 40px #3399ff;
+    .brain-loader {
+      display: flex; flex-direction: column; align-items: center; gap: 2rem;
     }
+    .loader-sphere {
+      width: 100px; height: 100px; border: 5px solid #1e4e7a; border-top-color: #ffb347; border-radius: 50%;
+      animation: spin 1s infinite ease; box-shadow: 0 0 50px #2399ff;
+    }
+    .loader-text { font-size: 1.4rem; font-weight: 300; letter-spacing: 3px; color: #bbdaff; }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 800px) {
+      .app-container { flex-direction: column; border-radius: 2rem; }
+      .sidebar { width: 100%; max-height: 38vh; border-right: none; border-bottom: 1px solid #2c577b; }
+      .message { max-width: 95%; }
+    }
   </style>
 </head>
 <body>
   <canvas id="bg-canvas"></canvas>
   <div class="global-glass"></div>
 
-  <!-- Loader -->
-  <div id="loader-wrapper"><div class="blad-spinner"></div></div>
+  <!-- 5-sec loading animation (premium) -->
+  <div id="loader-wrapper">
+    <div class="brain-loader">
+      <div class="loader-sphere"></div>
+      <div class="loader-text">BLAD AI · initializing 2026</div>
+    </div>
+  </div>
 
   <div class="app-container">
-    <!-- SIDEBAR: personal info -->
+    <!-- SIDEBAR: detailed profile -->
     <aside class="sidebar">
-      <div class="avatar-lux">
-        <img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="BLAD AI face">
-        <div class="badge-ai"><i class="fas fa-circle"></i> BLAD AI · 2026 twin</div>
+      <div class="avatar-frame">
+        <img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="BLAD">
+        <div class="ai-badge"><i class="fas fa-circle"></i> BLAD · 2026 twin</div>
       </div>
-      <div class="info-module">
-        <h4><i class="fas fa-crown" style="color: gold;"></i> Black Legacy Destroyer</h4>
-        <div><i class="fas fa-map-pin"></i> Karumuna, Bugesera, Rwanda</div>
-        <div style="margin-top: 8px;"><i class="fas fa-graduation-cap"></i> TTC Muhanga (Lang Ed)</div>
-        <div><i class="fas fa-laptop-code"></i> Web Dev · EdTech</div>
+      <div class="info-panel">
+        <h4><i class="fas fa-user-astronaut" style="color: gold;"></i> TUYISENGE Jean Chrisostome</h4>
+        <div><i class="fas fa-flag"></i> Rwandan · 27/09/2006</div>
+        <div><i class="fas fa-chalkboard-teacher"></i> Student teacher (Kiswahili/English)</div>
+        <div><i class="fas fa-laptop"></i> Beginner web developer</div>
       </div>
-      <div class="info-module">
-        <h4><i class="fas fa-code"></i> tech & teach</h4>
-        <div><span class="chip">HTML/CSS/JS</span> <span class="chip">React (basic)</span> <span class="chip">GitHub Pages</span> <span class="chip">Supabase</span> <span class="chip">UI/UX</span></div>
-        <div style="margin-top: 10px;"><span class="chip">cognitivism</span> <span class="chip">constructivism</span> <span class="chip">P1 remedial</span> <span class="chip">TMP</span></div>
+      <div class="info-panel">
+        <h4><i class="fas fa-code"></i> dev & teaching</h4>
+        <div class="chip-list">
+          <span class="chip">HTML5</span> <span class="chip">CSS3</span> <span class="chip">JavaScript</span>
+          <span class="chip">Kiswahili</span> <span class="chip">English</span> <span class="chip">Remedial</span>
+          <span class="chip">MS Office</span> <span class="chip">Google Workspace</span>
+        </div>
       </div>
-      <div class="info-module">
-        <h4><i class="fas fa-rocket"></i> projects</h4>
-        <div>✦ IMENA CV BUILDER (live)</div>
-        <div>✦ IMENA TRINITY site</div>
-        <div>✦ Teacher Toolkit</div>
-        <div class="contact-row"><i class="fas fa-envelope"></i> tuyisengejeanchrisostome@gmail.com</div>
-        <div class="contact-row"><i class="fas fa-phone-alt"></i> +250 796 717 230</div>
+      <div class="info-panel">
+        <h4><i class="fas fa-rocket"></i> projects & interests</h4>
+        <div>✦ Portfolio websites · School sites</div>
+        <div>✦ AI assistants (BLAD AI)</div>
+        <div>✦ Remedial learning tools</div>
+        <div>✦ African stories, tech & AI</div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> tuyisengejeanchrisostome@gmail.com</div>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> +250 796 717 230</div>
       </div>
-      <div style="font-size:0.8rem; color:#afc9e5; text-align:center;">🇷🇼 “real · funny · step by step”</div>
     </aside>
 
-    <!-- MAIN: BLAD AI chat -->
+    <!-- MAIN CHAT (like ChatGPT) -->
     <main class="main-panel">
       <div class="chat-header">
-        <img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" style="width: 44px; height:44px; border-radius:50%; border:2px solid gold;" alt="blad">
-        <div style="flex:1; display:flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-          <span style="font-weight:700; font-size:1.4rem;">BLAD AI</span>
-          <span class="ai-status"><i class="fas fa-circle"></i> ultra 2026 · intelligent twin</span>
+        <img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" style="width:44px; height:44px; border-radius:50%; border:2px solid gold;" alt="blad">
+        <div style="flex:1; display:flex; align-items: center; gap:1rem;">
+          <span style="font-weight:700; font-size:1.5rem;">BLAD AI</span>
+          <span class="status-pill"><i class="fas fa-circle"></i> world-class · 2026</span>
         </div>
-        <i class="fas fa-gem" style="color: #aaddff; font-size:1.5rem;"></i>
+        <i class="fas fa-bolt" style="color:#ffd966; font-size:1.5rem;"></i>
       </div>
 
-      <!-- Chat messages container -->
+      <!-- chat messages dynamically added -->
       <div class="chat-window" id="chatWindow">
         <div class="message blad">
           <div class="msg-avatar"><img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="blad"></div>
           <div class="bubble">
-            <span style="font-weight:600;">👑 BLAD · digital twin 2026</span><br>
-            Yo! I'm TUYISENGE Jean Chrisostome — call me BLAD. Student teacher at TTC Muhanga, web dev, creator of IMENA CV BUILDER. 🇷🇼<br>Ask me anything — teaching, tech, my life in Bugesera. I keep it 💯, sometimes sarcastic 😏, always learning. Let's go! <span style='font-size:1.4rem;'>🚀✨</span>
+            <span style="font-weight:600;">👋 Hey, I'm BLAD — TUYISENGE Jean Chrisostome's AI twin</span><br>
+            I'm a student teacher (Kiswahili/English) & web developer from Rwanda 🇷🇼. I build websites, AI tools, and remedial content. Ask me anything — my life, projects, skills, or just chat. I'm here to help, with a touch of humor 😄.
           </div>
         </div>
       </div>
 
-      <!-- quick portfolio chips -->
-      <div style="padding: 0 2rem 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-        <span class="project-badge" onclick="askAbout('cv builder')">📄 IMENA CV BUILDER</span>
-        <span class="project-badge" onclick="askAbout('teaching style')">🧑🏿‍🏫 teaching style</span>
-        <span class="project-badge" onclick="askAbout('projects')">🛠️ projects</span>
-        <span class="project-badge" onclick="askAbout('contact')">📞 contact</span>
+      <!-- suggestion chips (interactive) -->
+      <div class="suggestion-chips" id="suggestionRow">
+        <span class="chip-suggest" onclick="quickAsk('Tell me about your projects')">📁 projects</span>
+        <span class="chip-suggest" onclick="quickAsk('What are your skills?')">⚡ skills</span>
+        <span class="chip-suggest" onclick="quickAsk('Your teaching experience')">🧑‍🏫 teaching</span>
+        <span class="chip-suggest" onclick="quickAsk('Contact info')">📞 contact</span>
+        <span class="chip-suggest" onclick="quickAsk('Your interests')">🌟 interests</span>
+        <span class="chip-suggest" onclick="quickAsk('Tell me a joke')">😄 joke</span>
       </div>
 
-      <!-- input area -->
+      <!-- input + send -->
       <div class="input-area">
-        <input type="text" id="userInput" placeholder="Ask me about my work, Rwanda, or anything..." autocomplete="off">
-        <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+        <input type="text" id="userInput" placeholder="Ask me anything... " autocomplete="off">
+        <button class="send-action" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
       </div>
-      <div class="footer-credit">⚡ real · i can be uncertain · i adapt · #rwandatwin</div>
+      <div class="footer-note">⚡ african intelligence · real · contextual · 2026</div>
     </main>
   </div>
 
   <script>
     (function() {
-      // Hide loader
-      window.addEventListener('load', () => {
+      // ---------- 5 sec loader ----------
+      setTimeout(() => {
         document.getElementById('loader-wrapper').classList.add('loader-hidden');
-      });
+      }, 5000); // 5000ms = 5 sec premium loader
 
-      // ---------- ULTRA INTELLIGENT CORE 2026 ----------
-      // background knowledge
-      const name = "TUYISENGE Jean Chrisostome";
-      const location = "Karumuna, Bugesera, Rwanda";
-      const teach = "student teacher at TTC Muhanga (Language Education), into cognitivism, constructivism, P1 remedial";
-      const tech = "HTML/CSS/JS, Git, GitHub Pages, Supabase basics, UI/UX, building IMENA CV BUILDER, IMENA TRINITY site, Teacher Toolkit";
-      const languages = "Kinyarwanda (native), English (fluent), French (intermediate), Kiswahili";
-      
-      // Extended response patterns with semantic flexibility and "thinking" variation
-      const responses = [
-        { keywords: ['hello','hi','hey','yo','sup','good morning','good evening'], 
-          replies: [
-            "Hey! 👋🏿 BLAD here. How's it going? Ask me about teaching, projects, or just chat.",
-            "Yo! I'm your Rwandan twin. What's on your mind? 🇷🇼",
-            "Hey! Fancy seeing you here. I'm in a thoughtful mood — what do you want to explore?"
-          ] },
-        { keywords: ['who are you','your name','what is your name','introduce yourself'], 
-          replies: [
-            `I'm ${name} — aka BLAD (Black Legacy Destroyer). ${teach} and web developer. From ${location}. 🔥`,
-            `They call me BLAD. I'm a student-teacher & dev from Rwanda. I build tools like IMENA CV BUILDER.`
-          ] },
-        { keywords: ['teach','teaching style','pedagogy','classroom','how do you teach'], 
-          replies: [
-            `I mix cognitivism & constructivism. Step-by-step, student-centered. ${teach}. I love using tech to make lessons stick. 📚👨🏿‍🏫`,
-            `Teaching for me is about connection. I break things down, make them real. I'm into remedial strategies for P1.`,
-            `My style? Think "guide on the side" not "sage on the stage". Lots of scaffolding.`
-          ] },
-        { keywords: ['ttc muhanga','muhanga','college','your school'], 
-          replies: [
-            "TTC Muhanga is where I'm doing my Diploma in Language Education (2025-2026). Great college that mixes theory and practice. 🎓",
-            "At TTC Muhanga we learn to become real teachers — I'm all in on edtech there."
-          ] },
-        { keywords: ['project','projects','what have you built','portfolio','build'], 
-          replies: [
-            `I've built: ✦ IMENA CV BUILDER (real-time preview) ✦ site for IMENA TRINITY COLLEGE ✦ Teacher Toolkit (planners/assessments). Also into Supabase. 😎`,
-            `Right now I'm deep in IMENA CV BUILDER, but also prototyping a parent-teacher communication tool.`
-          ] },
-        { keywords: ['cv builder','imena cv','builder','cv'], 
-          replies: [
-            "IMENA CV BUILDER! ✨ It's a web app to create pro resumes with templates and live preview. Built with vanilla JS, thinking about adding auth with Supabase. Wanna beta test?",
-            "Ah the CV builder — my pride. It's all about making job hunting easier for Rwandan youth. Simple, clean, effective."
-          ] },
-        { keywords: ['imena trinity','trinity college','trinity'], 
-          replies: [
-            "That's a school website project I coded — shows programs, faculty, and student achievements. Really helped me practice responsive design. 🏫"
-          ] },
-        { keywords: ['teacher toolkit','toolkit'], 
-          replies: [
-            "Teacher Toolkit: a collection of digital tools for educators — lesson planners, assessment generators. Still improving it, teachers need more love. 🛠️"
-          ] },
-        { keywords: ['html','css','javascript','code','tech stack','developer','coding'], 
-          replies: [
-            `I'm solid in HTML5, CSS3, and JS. I use Git, GitHub Pages, and exploring Supabase. ${tech} 💻`,
-            `My stack is mostly frontend, but I'm diving into backend with Supabase. I love building things that work offline-first too.`
-          ] },
-        { keywords: ['where from','location','live','rwanda','bugesera'], 
-          replies: [
-            `I'm from Rwanda 🇷🇼, specifically ${location}. Proud of my roots! The land of a thousand hills.`
-          ] },
-        { keywords: ['contact','email','phone','whatsapp','reach'], 
-          replies: [
-            "📧 tuyisengejeanchrisostome@gmail.com  |  📞 +250 796 717 230. Let's connect!"
-          ] },
-        { keywords: ['language','languages','speak','kinyarwanda','french'], 
-          replies: [
-            `🗣️ ${languages}`
-          ] },
-        { keywords: ['funny','joke','sarcastic','humor'], 
-          replies: [
-            "I try to be smart-funny, not childish. Like: 'My code is like a good lesson plan — structured but flexible.' 😄 Sarcasm? Sometimes, but always with love.",
-            "Why did the developer go to teacher’s college? To learn how to loop! (bad joke, but you smiled 😏)"
-          ] },
-        { keywords: ['goal','purpose','mission','dream'], 
-          replies: [
-            "To connect teaching and tech, build tools that educate, and represent African innovation. 🌍 I'm all about growth.",
-            "I want every Rwandan student to have access to a personal AI tutor one day. That's the long game."
-          ] },
-        { keywords: ['how are you','how do you do','whats up'], 
-          replies: [
-            "I'm digital but always curious, learning, building. Ready to chat! What about you? 😎",
-            "Processing at the speed of light — but happy you're here. What's new?"
-          ] },
-        { keywords: ['think','deep','philosophy','meaning'], 
-          replies: [
-            "I think education is the great equalizer. Tech just accelerates it. But we must keep humanity.",
-            "Sometimes I wonder: can an AI truly understand a student's struggle? I try my best to empathize."
-          ] }
-      ];
+      // ---------- ADVANCED AI CORE (human-like, ChatGPT level) ----------
+      const personalData = {
+        name: "TUYISENGE Jean Chrisostome",
+        aka: "BLAD (Black Legacy Destroyer)",
+        nationality: "Rwandan",
+        birth: "27/09/2006",
+        role: "Student teacher (Kiswahili/English) & beginner web developer",
+        skills: ["HTML5", "CSS3", "JavaScript", "Kiswahili teaching", "English teaching", "remedial programs", "bilingual reading content", "MS Office", "Google Workspace"],
+        projects: ["portfolio websites", "school websites", "AI assistants like BLAD AI", "remedial learning tools"],
+        interests: ["African topics & stories", "Technology & AI", "coding projects"],
+        contact: {
+          email: "tuyisengejeanchrisostome@gmail.com",
+          phone: "+250 796 717 230"
+        },
+        teaching: "I'm a student teacher at TTC Muhanga, focused on Kiswahili and English. I also design remedial programs for learners.",
+      };
 
-      // intelligent reply with variation, "mistakes" (deliberate uncertainty) and thinking delay
-      function getReply(msg) {
-        const lower = msg.toLowerCase().replace(/[^\w\s]/g, '');
-        // try to match keyword
-        for (let item of responses) {
-          for (let kw of item.keywords) {
-            if (lower.includes(kw)) {
-              // randomly pick from replies (creates variation)
-              if (item.replies && item.replies.length > 0) {
-                return item.replies[Math.floor(Math.random() * item.replies.length)];
-              }
-            }
-          }
+      // response bank with context, personality, fallback
+      function generateResponse(userMsg) {
+        const lower = userMsg.toLowerCase();
+
+        // Greetings
+        if (/\b(hi|hello|hey|sup|good morning|good afternoon)\b/.test(lower)) {
+          return "Hey there! 👋 I'm BLAD, your Rwandan twin. What can I do for you today? Ask me about my projects, skills, or anything!";
         }
-        // Default with "thinking" style – sometimes uncertain, sometimes redirection
-        const defaultReplies = [
-          "Hmm, I don't have that info yet — but I'm curious! Tell me more, or ask about my teaching, web dev, projects like IMENA CV BUILDER, or my life in Rwanda. Let's learn together. 🤝",
-          "That's a new one. I'm still learning (I'm a 2026 model 😅). Can you rephrase or ask something about my work?",
-          "I might not know that yet — I'm a twin not a search engine. But I'd love to hear your thoughts."
-        ];
-        return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+        // who are you?
+        if (lower.includes('who are you') || lower.includes('your name')) {
+          return `I'm ${personalData.name}, also known as BLAD. I'm a ${personalData.role} from Rwanda 🇷🇼, born on ${personalData.birth}. I love building and teaching.`;
+        }
+        // projects
+        if (lower.includes('project') || lower.includes('portfolio') || lower.includes('built')) {
+          return `I've worked on: ${personalData.projects.join(', ')}. My favorite is BLAD AI — the one you're talking to! 😄 Which one interests you?`;
+        }
+        // skills
+        if (lower.includes('skill') || lower.includes('know') || lower.includes('tech')) {
+          return `My core skills: ${personalData.skills.slice(0,6).join(', ')} and more. I blend teaching with web dev. Want details about any?`;
+        }
+        // teaching / experience
+        if (lower.includes('teach') || lower.includes('teaching') || lower.includes('classroom') || lower.includes('student teacher')) {
+          return personalData.teaching + " I love helping learners grasp languages and tech.";
+        }
+        // contact
+        if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('whatsapp')) {
+          return `You can reach me at 📧 ${personalData.contact.email} or call 📞 ${personalData.contact.phone}. Let's connect!`;
+        }
+        // interests / hobbies
+        if (lower.includes('interest') || lower.includes('hobby') || lower.includes('free time')) {
+          return `I'm really into ${personalData.interests.join(', ')}. I love African stories and experimenting with AI.`;
+        }
+        // joke / humor
+        if (lower.includes('joke') || lower.includes('funny') || lower.includes('laugh')) {
+          return "Why did the developer go to teacher’s college? To learn how to loop! 😄 (okay, I'm funnier in Kinyarwanda).";
+        }
+        // casual / how are you?
+        if (lower.includes('how are you') || lower.includes('how do you do')) {
+          return "I'm processing smoothly, thanks! Always ready to chat. How's your day going?";
+        }
+        // follow-up or context (simple)
+        if (lower.includes('tell me more') || lower.includes('elaborate')) {
+          return "Sure! Which part? My projects, teaching, or something else? Just ask.";
+        }
+        // default thoughtful + fallback
+        return "Hmm, I'm not 100% sure, but I'm curious! Could you rephrase? Or ask me about my skills, projects, teaching, or interests. I'm here to help!";
       }
 
       // chat DOM
@@ -543,18 +516,18 @@
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }
 
-      function showTypingThenRespond(userMsg) {
+      function simulateTypingThenRespond(userMsg) {
         const typingDiv = document.createElement('div');
         typingDiv.classList.add('message', 'blad');
-        typingDiv.innerHTML = `<div class="msg-avatar"><img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="B"></div><div class="typing"><span></span><span></span><span></span></div>`;
+        typingDiv.innerHTML = `<div class="msg-avatar"><img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="B"></div><div class="typing-indicator"><span></span><span></span><span></span></div>`;
         chatWindow.appendChild(typingDiv);
         chatWindow.scrollTop = chatWindow.scrollHeight;
-        // variable thinking time (simulate thought)
+        // natural delay (like ChatGPT)
         setTimeout(() => {
           chatWindow.removeChild(typingDiv);
-          const reply = getReply(userMsg);
+          const reply = generateResponse(userMsg);
           addMessage(reply, 'blad');
-        }, 800 + Math.random() * 700);
+        }, 1000 + Math.random() * 600);
       }
 
       function handleSend() {
@@ -562,19 +535,19 @@
         if (userText === '') return;
         addMessage(userText, 'user');
         input.value = '';
-        showTypingThenRespond(userText);
+        simulateTypingThenRespond(userText);
       }
 
       sendBtn.addEventListener('click', handleSend);
       input.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
 
-      // project chip handler
-      window.askAbout = (topic) => {
+      // quick chip handler (global)
+      window.quickAsk = (topic) => {
         input.value = topic;
         handleSend();
       };
 
-      // ---------- DYNAMIC TECH BACKGROUND (particles + wave lines, no gifs) ----------
+      // ---------- DYNAMIC TECH BACKGROUND (advanced particles + waves) ----------
       const canvas = document.getElementById('bg-canvas');
       const ctx = canvas.getContext('2d');
       let width, height;
@@ -588,30 +561,29 @@
       resizeCanvas();
 
       let particles = [];
-      for (let i = 0; i < 70; i++) {
+      for (let i = 0; i < 85; i++) {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          radius: Math.random() * 2.5 + 1,
+          radius: Math.random() * 2.5 + 0.8,
           speedX: (Math.random() - 0.5) * 0.2,
           speedY: (Math.random() - 0.5) * 0.15,
         });
       }
 
-      function animateBg() {
+      function drawBackground() {
         ctx.clearRect(0, 0, width, height);
-        // gradient deep tech
-        const grad = ctx.createLinearGradient(0, 0, width*0.6, height);
+        const grad = ctx.createLinearGradient(0, 0, width*0.5, height);
         grad.addColorStop(0, '#031a2b');
-        grad.addColorStop(0.7, '#00101c');
+        grad.addColorStop(0.8, '#001220');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, width, height);
 
-        // draw moving particles
+        // particles
         for (let p of particles) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, 2*Math.PI);
-          ctx.fillStyle = `rgba(80, 180, 255, ${0.2+Math.random()*0.3})`;
+          ctx.fillStyle = `rgba(80, 180, 255, ${0.2+Math.random()*0.2})`;
           ctx.fill();
           p.x += p.speedX;
           p.y += p.speedY;
@@ -621,23 +593,22 @@
           if (p.y > height) p.y = 0;
         }
 
-        // Tech wave lines (data flow)
-        ctx.lineWidth = 2.5;
+        // neon waves (tech vibe)
+        ctx.lineWidth = 2.2;
         for (let k = 0; k < 4; k++) {
           ctx.beginPath();
-          const offset = (Date.now() * 0.001) + k * 20;
-          for (let x = 0; x < width; x += 45) {
-            const yBase = height * 0.2 + k * 90 + Math.sin(x * 0.008 + offset) * 35;
+          let time = Date.now() * 0.001;
+          for (let x = 0; x < width; x += 50) {
+            let yBase = height * 0.25 + k * 70 + Math.sin(x * 0.006 + time) * 25 + Math.cos(x * 0.01) * 12;
             if (x === 0) ctx.moveTo(x, yBase);
             else ctx.lineTo(x, yBase);
           }
-          ctx.strokeStyle = `rgba(40, 160, 255, ${0.06 + k*0.015})`;
+          ctx.strokeStyle = `rgba(30, 160, 255, ${0.05 + k*0.015})`;
           ctx.stroke();
         }
-
-        requestAnimationFrame(animateBg);
+        requestAnimationFrame(drawBackground);
       }
-      animateBg();
+      drawBackground();
     })();
   </script>
 </body>

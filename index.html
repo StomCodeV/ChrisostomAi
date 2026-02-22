@@ -15,6 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Supabase JS Client (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     /* ---------- GLOBAL RESET & DESIGN SYSTEM 2026 ---------- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -343,7 +345,7 @@
   <div id="loader-wrapper">
     <div class="brain-loader">
       <div class="loader-sphere"></div>
-      <div class="loader-text">BLAD AI · initializing 2026</div>
+      <div class="loader-text">BLAD AI · initializing...</div>
     </div>
   </div>
 
@@ -352,20 +354,20 @@
     <aside class="sidebar">
       <div class="avatar-frame">
         <img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="BLAD">
-        <div class="ai-badge"><i class="fas fa-circle"></i> BLAD · 2026 twin</div>
+        <div class="ai-badge"><i class="fas fa-circle"></i> BLAD Ai</div>
       </div>
       <div class="info-panel">
-        <h4><i class="fas fa-user-astronaut" style="color: gold;"></i> TUYISENGE Jean Chrisostome</h4>
-        <div><i class="fas fa-flag"></i> Rwandan · 27/09/2006</div>
-        <div><i class="fas fa-chalkboard-teacher"></i> Student teacher (Kiswahili/English)</div>
-        <div><i class="fas fa-laptop"></i> Beginner web developer</div>
+        <h4><i class="fas fa-user-astronaut" style="color: gold;"></i> TUYISENGE Jean Chrisostom</h4>
+        <div><i class="fas fa-flag"></i> Rwandan</div>
+        <div><i class="fas fa-chalkboard-teacher"></i> Student teacher</div>
+        <div><i class="fas fa-laptop"></i>Web developer</div>
       </div>
       <div class="info-panel">
         <h4><i class="fas fa-code"></i> dev & teaching</h4>
         <div class="chip-list">
           <span class="chip">HTML5</span> <span class="chip">CSS3</span> <span class="chip">JavaScript</span>
-          <span class="chip">Kiswahili</span> <span class="chip">English</span> <span class="chip">Remedial</span>
-          <span class="chip">MS Office</span> <span class="chip">Google Workspace</span>
+          <span class="chip">Kiswahili</span> <span class="chip">languages  </span> <span class="chip">Communication skills</span>
+          <span class="chip">Pyhon</span> <span class="chip">Google Workspace</span>
         </div>
       </div>
       <div class="info-panel">
@@ -403,12 +405,12 @@
 
       <!-- suggestion chips (interactive) -->
       <div class="suggestion-chips" id="suggestionRow">
-        <span class="chip-suggest" onclick="quickAsk('Tell me about your projects')">📁 projects</span>
-        <span class="chip-suggest" onclick="quickAsk('What are your skills?')">⚡ skills</span>
-        <span class="chip-suggest" onclick="quickAsk('Your teaching experience')">🧑‍🏫 teaching</span>
-        <span class="chip-suggest" onclick="quickAsk('Contact info')">📞 contact</span>
-        <span class="chip-suggest" onclick="quickAsk('Your interests')">🌟 interests</span>
-        <span class="chip-suggest" onclick="quickAsk('Tell me a joke')">😄 joke</span>
+        <span class="chip-suggest" data-suggest="Tell me about your projects">📁 projects</span>
+        <span class="chip-suggest" data-suggest="What are your skills?">⚡ skills</span>
+        <span class="chip-suggest" data-suggest="Your teaching experience">🧑‍🏫 teaching</span>
+        <span class="chip-suggest" data-suggest="Contact info">📞 contact</span>
+        <span class="chip-suggest" data-suggest="Your interests">🌟 interests</span>
+        <span class="chip-suggest" data-suggest="Tell me a joke">😄 joke</span>
       </div>
 
       <!-- input + send -->
@@ -416,83 +418,195 @@
         <input type="text" id="userInput" placeholder="Ask me anything... " autocomplete="off">
         <button class="send-action" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
       </div>
-      <div class="footer-note">⚡ african intelligence · real · contextual · 2026</div>
+      <div class="footer-note">©TUYISENGE Jean Chrisostom. Alrights reserved</div>
     </main>
   </div>
 
   <script>
     (function() {
-      // ---------- 5 sec loader ----------
-      setTimeout(() => {
-        document.getElementById('loader-wrapper').classList.add('loader-hidden');
-      }, 5000); // 5000ms = 5 sec premium loader
+      // ---------- SUPABASE CONFIG ----------
+      const SUPABASE_URL = 'https://fovnqwlrnldzsgfysdmv.supabase.co';
+      const SUPABASE_ANON_KEY = 'sb_publishable_vHBX9i5nCGWf_L-pFeGgfA_NQ_qXzPb';
+      
+      // ---------- INIT SUPABASE ----------
+      const { createClient } = supabase;
+      const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      
+      // ---------- VISITOR IDENTIFICATION ----------
+      let visitorId = localStorage.getItem('blad_visitor_id');
+      let isNewVisitor = false;
+      if (!visitorId) {
+        visitorId = crypto.randomUUID ? crypto.randomUUID() : 'visitor-' + Date.now() + '-' + Math.random().toString(36).substring(2);
+        localStorage.setItem('blad_visitor_id', visitorId);
+        isNewVisitor = true;
+      }
 
-      // ---------- ADVANCED AI CORE (human-like, ChatGPT level) ----------
+      // ---------- TRACK VISITOR ----------
+      async function trackVisitor() {
+        try {
+          if (isNewVisitor) {
+            await supabaseClient
+              .from('visitors')
+              .insert([{
+                visitor_id: visitorId,
+                visit_count: 1,
+                first_visit: new Date().toISOString(),
+                last_visit: new Date().toISOString()
+              }]);
+          } else {
+            // Direct update without RPC
+            const { data } = await supabaseClient
+              .from('visitors')
+              .select('visit_count')
+              .eq('visitor_id', visitorId)
+              .maybeSingle();
+            
+            if (data) {
+              await supabaseClient
+                .from('visitors')
+                .update({ 
+                  visit_count: data.visit_count + 1, 
+                  last_visit: new Date().toISOString() 
+                })
+                .eq('visitor_id', visitorId);
+            } else {
+              // Visitor exists in localStorage but not in DB? Insert them
+              await supabaseClient
+                .from('visitors')
+                .insert([{
+                  visitor_id: visitorId,
+                  visit_count: 1,
+                  first_visit: new Date().toISOString(),
+                  last_visit: new Date().toISOString()
+                }]);
+            }
+          }
+        } catch (err) {
+          console.warn('Visitor tracking offline', err);
+        }
+      }
+
+      // ---------- TRACK ANALYTICS ----------
+      async function trackEvent(eventType, metadata = {}) {
+        try {
+          await supabaseClient
+            .from('analytics')
+            .insert([{
+              visitor_id: visitorId,
+              event_type: eventType,
+              metadata: metadata,
+              created_at: new Date().toISOString()
+            }]);
+        } catch (err) {
+          // Silent fail
+        }
+      }
+
+      // ---------- LOAD CHAT HISTORY ----------
+      async function loadChatHistory() {
+        if (isNewVisitor) return;
+        try {
+          const { data, error } = await supabaseClient
+            .from('messages')
+            .select('content, sender, created_at')
+            .eq('visitor_id', visitorId)
+            .order('created_at', { ascending: true });
+          
+          if (error || !data || data.length === 0) return;
+          
+          const chatWindow = document.getElementById('chatWindow');
+          chatWindow.innerHTML = ''; // Clear welcome message
+          
+          data.forEach(msg => {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', msg.sender === 'user' ? 'user' : 'blad');
+            const avatar = document.createElement('div');
+            avatar.classList.add('msg-avatar');
+            if (msg.sender === 'blad') {
+              avatar.innerHTML = '<img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="blad">';
+            } else {
+              avatar.innerHTML = '<i class="fas fa-user" style="color:white; font-size:1.3rem;"></i>';
+            }
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            bubble.innerText = msg.content;
+            msgDiv.appendChild(avatar);
+            msgDiv.appendChild(bubble);
+            chatWindow.appendChild(msgDiv);
+          });
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+        } catch (err) {
+          // Keep welcome message if offline
+        }
+      }
+
+      // ---------- SAVE MESSAGE ----------
+      async function saveMessage(content, sender) {
+        try {
+          await supabaseClient
+            .from('messages')
+            .insert([{
+              visitor_id: visitorId,
+              content: content,
+              sender: sender,
+              created_at: new Date().toISOString()
+            }]);
+        } catch (err) {
+          console.warn('Message not saved');
+        }
+      }
+
+      // ---------- AI RESPONSE GENERATION ----------
       const personalData = {
         name: "TUYISENGE Jean Chrisostome",
         aka: "BLAD (Black Legacy Destroyer)",
         nationality: "Rwandan",
         birth: "27/09/2006",
-        role: "Student teacher (Kiswahili/English) & beginner web developer",
-        skills: ["HTML5", "CSS3", "JavaScript", "Kiswahili teaching", "English teaching", "remedial programs", "bilingual reading content", "MS Office", "Google Workspace"],
-        projects: ["portfolio websites", "school websites", "AI assistants like BLAD AI", "remedial learning tools"],
-        interests: ["African topics & stories", "Technology & AI", "coding projects"],
+        role: "Student teacher (Kiswahili/English) & web developer",
+        skills: ["HTML5", "CSS3", "JavaScript", "Kiswahili", "English", "Communication", "Python", "Google Workspace"],
+        projects: ["portfolio websites", "school websites", "AI assistants", "remedial learning tools"],
+        interests: ["African stories", "Technology", "AI", "coding"],
         contact: {
           email: "tuyisengejeanchrisostome@gmail.com",
           phone: "+250 796 717 230"
         },
-        teaching: "I'm a student teacher at TTC Muhanga, focused on Kiswahili and English. I also design remedial programs for learners.",
+        teaching: "I'm a student teacher focused on Kiswahili and English. I design remedial programs for learners."
       };
 
-      // response bank with context, personality, fallback
       function generateResponse(userMsg) {
         const lower = userMsg.toLowerCase();
 
-        // Greetings
-        if (/\b(hi|hello|hey|sup|good morning|good afternoon)\b/.test(lower)) {
-          return "Hey there! 👋 I'm BLAD, your Rwandan twin. What can I do for you today? Ask me about my projects, skills, or anything!";
+        if (/\b(hi|hello|hey|sup)\b/.test(lower)) {
+          return "Hey there! 👋 I'm BLAD. Ask me about my projects, skills, or anything!";
         }
-        // who are you?
         if (lower.includes('who are you') || lower.includes('your name')) {
-          return `I'm ${personalData.name}, also known as BLAD. I'm a ${personalData.role} from Rwanda 🇷🇼, born on ${personalData.birth}. I love building and teaching.`;
+          return `I'm ${personalData.name}, also known as BLAD. I'm a ${personalData.role} from Rwanda 🇷🇼.`;
         }
-        // projects
-        if (lower.includes('project') || lower.includes('portfolio') || lower.includes('built')) {
-          return `I've worked on: ${personalData.projects.join(', ')}. My favorite is BLAD AI — the one you're talking to! 😄 Which one interests you?`;
+        if (lower.includes('project')) {
+          return `I've worked on: ${personalData.projects.join(', ')}. Which interests you?`;
         }
-        // skills
-        if (lower.includes('skill') || lower.includes('know') || lower.includes('tech')) {
-          return `My core skills: ${personalData.skills.slice(0,6).join(', ')} and more. I blend teaching with web dev. Want details about any?`;
+        if (lower.includes('skill')) {
+          return `My skills: ${personalData.skills.join(', ')}. Want details about any?`;
         }
-        // teaching / experience
-        if (lower.includes('teach') || lower.includes('teaching') || lower.includes('classroom') || lower.includes('student teacher')) {
-          return personalData.teaching + " I love helping learners grasp languages and tech.";
+        if (lower.includes('teach')) {
+          return personalData.teaching;
         }
-        // contact
-        if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('whatsapp')) {
-          return `You can reach me at 📧 ${personalData.contact.email} or call 📞 ${personalData.contact.phone}. Let's connect!`;
+        if (lower.includes('contact')) {
+          return `📧 ${personalData.contact.email} or 📞 ${personalData.contact.phone}`;
         }
-        // interests / hobbies
-        if (lower.includes('interest') || lower.includes('hobby') || lower.includes('free time')) {
-          return `I'm really into ${personalData.interests.join(', ')}. I love African stories and experimenting with AI.`;
+        if (lower.includes('interest')) {
+          return `I'm into ${personalData.interests.join(', ')}.`;
         }
-        // joke / humor
-        if (lower.includes('joke') || lower.includes('funny') || lower.includes('laugh')) {
-          return "Why did the developer go to teacher’s college? To learn how to loop! 😄 (okay, I'm funnier in Kinyarwanda).";
+        if (lower.includes('joke')) {
+          return "Why did the developer go to teacher's college? To learn how to loop! 😄";
         }
-        // casual / how are you?
-        if (lower.includes('how are you') || lower.includes('how do you do')) {
-          return "I'm processing smoothly, thanks! Always ready to chat. How's your day going?";
+        if (lower.includes('africa') || lower.includes('rwanda')) {
+          trackEvent('topic_interest', { topic: 'africa' });
         }
-        // follow-up or context (simple)
-        if (lower.includes('tell me more') || lower.includes('elaborate')) {
-          return "Sure! Which part? My projects, teaching, or something else? Just ask.";
-        }
-        // default thoughtful + fallback
-        return "Hmm, I'm not 100% sure, but I'm curious! Could you rephrase? Or ask me about my skills, projects, teaching, or interests. I'm here to help!";
+        return "Ask me about my projects, skills, teaching, or interests!";
       }
 
-      // chat DOM
+      // ---------- CHAT UI ----------
       const chatWindow = document.getElementById('chatWindow');
       const input = document.getElementById('userInput');
       const sendBtn = document.getElementById('sendBtn');
@@ -516,41 +630,61 @@
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }
 
-      function simulateTypingThenRespond(userMsg) {
+      async function simulateTypingThenRespond(userMsg) {
         const typingDiv = document.createElement('div');
         typingDiv.classList.add('message', 'blad');
         typingDiv.innerHTML = `<div class="msg-avatar"><img src="https://i.postimg.cc/tZ0wrGqj/BLAD.webp" alt="B"></div><div class="typing-indicator"><span></span><span></span><span></span></div>`;
         chatWindow.appendChild(typingDiv);
         chatWindow.scrollTop = chatWindow.scrollHeight;
-        // natural delay (like ChatGPT)
-        setTimeout(() => {
+
+        setTimeout(async () => {
           chatWindow.removeChild(typingDiv);
           const reply = generateResponse(userMsg);
           addMessage(reply, 'blad');
-        }, 1000 + Math.random() * 600);
+          await saveMessage(reply, 'blad');
+        }, 1200 + Math.random() * 600);
       }
 
-      function handleSend() {
+      async function handleSend() {
         const userText = input.value.trim();
         if (userText === '') return;
         addMessage(userText, 'user');
+        await saveMessage(userText, 'user');
+        trackEvent('message_sent', { preview: userText.substring(0, 30) });
         input.value = '';
-        simulateTypingThenRespond(userText);
+        await simulateTypingThenRespond(userText);
       }
 
-      sendBtn.addEventListener('click', handleSend);
-      input.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+      // ---------- INITIALIZATION ----------
+      window.addEventListener('load', async () => {
+        await trackVisitor();
+        trackEvent('visit');
+        await loadChatHistory();
 
-      // quick chip handler (global)
-      window.quickAsk = (topic) => {
-        input.value = topic;
-        handleSend();
-      };
+        sendBtn.addEventListener('click', handleSend);
+        input.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
 
-      // ---------- DYNAMIC TECH BACKGROUND (advanced particles + waves) ----------
+        document.querySelectorAll('.chip-suggest').forEach(chip => {
+          chip.addEventListener('click', (e) => {
+            const text = e.target.getAttribute('data-suggest');
+            if (text) {
+              input.value = text;
+              handleSend();
+            }
+          });
+        });
+      });
+
+      // ---------- 5 SEC LOADER ----------
+      setTimeout(() => {
+        document.getElementById('loader-wrapper').classList.add('loader-hidden');
+      }, 5000);
+
+      // ---------- BACKGROUND CANVAS ----------
       const canvas = document.getElementById('bg-canvas');
       const ctx = canvas.getContext('2d');
       let width, height;
+      
       function resizeCanvas() {
         width = window.innerWidth;
         height = window.innerHeight;
@@ -579,7 +713,6 @@
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, width, height);
 
-        // particles
         for (let p of particles) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, 2*Math.PI);
@@ -593,7 +726,6 @@
           if (p.y > height) p.y = 0;
         }
 
-        // neon waves (tech vibe)
         ctx.lineWidth = 2.2;
         for (let k = 0; k < 4; k++) {
           ctx.beginPath();

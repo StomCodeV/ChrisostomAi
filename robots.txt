@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stomcodev.github.io/ChrisostomAi/sitemap.xml
